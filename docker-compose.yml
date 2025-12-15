@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  cards-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: health-tools-cards-service
+    ports:
+      - "8083:8083"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - JAVA_OPTS=-Xms256m -Xmx512m
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8083/api/v1/cards/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - health-tools-network
+    restart: unless-stopped
+
+networks:
+  health-tools-network:
+    driver: bridge

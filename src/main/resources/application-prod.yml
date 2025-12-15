@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: ${DATABASE_URL:jdbc:h2:mem:cardsdb}
+    username: ${DATABASE_USER:sa}
+    password: ${DATABASE_PASSWORD:}
+  
+  h2:
+    console:
+      enabled: false
+  
+  jpa:
+    show-sql: false
+
+logging:
+  level:
+    root: INFO
+    com.health.tools.cards: INFO
