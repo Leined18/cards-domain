@@ -1,6 +1,6 @@
 # 🎴 Cards Domain
 
-Libreria para gestión de tarjetas de terapia.
+Libreria para gestión de tarjetas generales.
 
 ## 🚀 Quick Start
 
