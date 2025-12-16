@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: cards-service
+  
+  datasource:
+    url: ${DATABASE_URL:jdbc:h2:mem:cardsdb}
+    driver-class-name: ${DATABASE_DRIVER:org.h2.Driver}
+    username: ${DB_USER:sa}
+    password: ${DB_PASSWORD:}
+    hikari:
+      maximum-pool-size: ${DB_POOL_SIZE:10}
+      minimum-idle: ${DB_MIN_IDLE:2}
+      connection-timeout: ${DB_CONNECTION_TIMEOUT:20000}
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  
+  jpa:
+    database-platform: ${DATABASE_DIALECT:org.hibernate.dialect.H2Dialect}
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: ${CARDS_SERVICE_PORT:8084}
+  servlet:
+    context-path: /
+
+logging:
+  level:
+    root: ${LOG_LEVEL:INFO}
+    com.health.tools.cards: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  file:
+    path: ${LOG_PATH:./logs}
