@@ -1,6 +1,6 @@
 # 🎴 Cards Domain
 
-Microservicio independiente para gestión de tarjetas de terapia.
+Libreria para gestión de tarjetas de terapia.
 
 ## 🚀 Quick Start
 
