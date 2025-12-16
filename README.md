@@ -1,4 +1,4 @@
-# 🎴 Cards Service
+# 🎴 Cards Domain
 
 Microservicio independiente para gestión de tarjetas de terapia.
 
